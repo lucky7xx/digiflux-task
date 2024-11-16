@@ -14,23 +14,50 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Environment Variables**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+To configure the environment variables, create a `.env.local` file in the root of your project. This file will hold the following variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `NEXT_PUBLIC_GOOGLE_CLIENT_ID`: Your Google OAuth Client ID.
+- `NEXT_PUBLIC_GOOGLE_CLIENT_SECRET`: Your Google OAuth Client Secret.
+- `NEXTAUTH_SECRET`: A random string used to secure your sessions.
 
-## Learn More
+### Example `.env.local` File
 
-To learn more about Next.js, take a look at the following resources:
+```plaintext
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-google-client-id
+NEXT_PUBLIC_GOOGLE_CLIENT_SECRET=your-google-client-secret
+NEXTAUTH_SECRET=your-random-secret
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## **Overview**
+This is a simple Next.js project demonstrating user authentication using Google Sign-In via `next-auth`. It includes:
+- A **Login Page** to authenticate users using Google OAuth.
+- A **Products Page** that lists products fetched from a public API and is protected from unauthenticated access.
+- A **Home Page** that serves as the entry point and provides navigation to the login page.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## **Features**
+1. **Google Authentication**:
+   - Users can log in using their Google accounts via `next-auth`.
+   - Protected routes redirect unauthenticated users to the login page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Dynamic Navigation**:
+   - Home page with navigation to the login page.
+   - Products page dynamically fetches data and supports pagination.
+
+3. **Protected Routes**:
+   - The `/products` page is accessible only to authenticated users.
+   - Unauthenticated users are redirected to the `/login` page with a contextual message.
+
+4. **Responsive Design**:
+   - Centered content and clean UI with consistent styling.
+
+---
+
+## **Tech Stack**
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **Styling**: Inline CSS with basic hover effects
+- **API Integration**: [Fake Store API](https://fakestoreapi.com/)
+```
